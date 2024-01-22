@@ -6,7 +6,7 @@ export const containerApi = createApi(
         baseQuery: fetchBaseQuery({baseUrl: "https://65ad0b0dadbd5aa31bdff978.mockapi.io"}),
         endpoints: (builder) => ({
             getDataContainer: builder.query({
-                query: ()=>'/api/books/2'
+                query: ()=>'/api/books'
             })
         })
     }

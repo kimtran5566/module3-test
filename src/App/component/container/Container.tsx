@@ -16,14 +16,13 @@ import {
 import { useAppDispatch, useAppSelector } from "../../typescript/hook";
 
 const Container = () => {
-  const data = useAppSelector((state) => state.fetchProductList);
   let dispatch = useAppDispatch();
 
   //  useEffect(() => {
   //  	dispatch(fetchProductList());
   //  }, []);
-  const { newdata, isLoading } = useGetDataContainerQuery();
-
+  const { data, isLoading } = useGetDataContainerQuery(23);
+console.log(data)
   return (
     <div className="grid grid-flow-row grid-cols-6 gap-x-2 gap-y-4 w-[1200px] mx-auto">
       {/* {isLoading && (
@@ -51,24 +50,7 @@ const Container = () => {
             <span>${book.author}</span>
             <span>Total: {book.quantity}</span>
           </div>
-          <button
-            type="button"
-            className={classNames({
-              "p-[1px] absolute right-1 top-1 text-xs bg-blue-500 rounded-sm text-white":
-                true,
-              "cursor-not-allowed opacity-50": item.quantity === 0,
-            })}
-            onClick={() => {
-              if (item.quantity > 0) {
-                dispatch(incrementByAmount(1));
-                dispatch(addProduct(item));
-                dispatch(updateProductList(item.id));
-                dispatch(loadProductList());
-              }
-            }}
-          >
-            {item.quantity > 0 ? "ADD" : "Sold Out"}
-          </button>
+        
         </div>
       ))}
     </div>
